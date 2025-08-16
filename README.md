@@ -16,7 +16,7 @@ Um projeto desenvolvido como desafio da **Alura**, que implementa um sistema de 
 
 ## ⚙️ Tecnologias Utilizadas
 
-- **Java 17+**
+- **Java 24**
 - **Spring Boot** (Web, Security, Data JPA)
 - **MySQL**
 - **Flyway** (controle de migrations)
@@ -28,40 +28,33 @@ Um projeto desenvolvido como desafio da **Alura**, que implementa um sistema de 
 
 ### Pré-requisitos
 
-- Java 17+
+- Java 24
 - Maven
 - MySQL
 
 ### Passos
 
 1. Clone o repositório:
-   ```bash
-   git clone https://github.com/seu-usuario/forumhub.git
+   git clone https://github.com/RicardoLMessias/challenger_forum_hub
    cd forumhub
+   
 Configure o banco de dados no arquivo application.properties:
 
 properties
-Copiar
-Editar
+
 spring.datasource.url=jdbc:mysql://localhost:3306/forumhub
 spring.datasource.username=seu-usuario
 spring.datasource.password=sua-senha
 Execute o projeto com Maven:
 
-bash
-Copiar
-Editar
+
 mvn spring-boot:run
 Acesse a aplicação em:
 
-arduino
-Copiar
-Editar
+
 http://localhost:8080
 📂 Estrutura do Projeto
-bash
-Copiar
-Editar
+
 src/
  ├── main/
  │   ├── java/br/com/alura/Challenger/Forumhub
@@ -81,9 +74,7 @@ POST /login → Gera token de autenticação
 
 Endpoints privados exigem token JWT no header:
 
-makefile
-Copiar
-Editar
+
 Authorization: Bearer <token>
 📑 Endpoints Principais
 Tópicos
