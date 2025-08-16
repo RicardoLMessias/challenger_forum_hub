@@ -103,7 +103,7 @@ PUT /topicos/{id} → Edita um tópico existente
 
 DELETE /topicos/{id} → Exclusão lógica de um tópico
 
-✨ Melhorias Futuras
+## Melhorias Futuras
 Documentação da API com Swagger/OpenAPI
 
 Testes unitários e de integração
