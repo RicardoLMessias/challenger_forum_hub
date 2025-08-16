@@ -4,7 +4,7 @@ Um projeto desenvolvido como desafio da **Alura**, que implementa um sistema de 
 
 ---
 
-## 📌 Funcionalidades
+##  Funcionalidades
 
 - Cadastro e autenticação de usuários (**JWT**)
 - Cadastro, listagem e gerenciamento de tópicos
@@ -14,7 +14,7 @@ Um projeto desenvolvido como desafio da **Alura**, que implementa um sistema de 
 
 ---
 
-## ⚙️ Tecnologias Utilizadas
+## ⚙ Tecnologias Utilizadas
 
 - **Java 24**
 - **Spring Boot** (Web, Security, Data JPA)
@@ -24,7 +24,7 @@ Um projeto desenvolvido como desafio da **Alura**, que implementa um sistema de 
 
 ---
 
-## 🚀 Como Rodar o Projeto
+##  Como Rodar o Projeto
 
 ### Pré-requisitos
 
@@ -37,6 +37,7 @@ Um projeto desenvolvido como desafio da **Alura**, que implementa um sistema de 
 1. Clone o repositório:
    git clone https://github.com/RicardoLMessias/challenger_forum_hub
    cd forumhub
+   ---
    
 Configure o banco de dados no arquivo application.properties:
 
@@ -46,14 +47,15 @@ spring.datasource.url=jdbc:mysql://localhost:3306/forumhub
 spring.datasource.username=seu-usuario
 spring.datasource.password=sua-senha
 Execute o projeto com Maven:
-
+---
 
 mvn spring-boot:run
 Acesse a aplicação em:
 
 
 http://localhost:8080
-📂 Estrutura do Projeto
+---
+##  Estrutura do Projeto
 
 src/
 
@@ -76,7 +78,8 @@ src/
  │        └── db/migration   # Migrations Flyway
 
  
-🔒 Autenticação
+---
+##Autenticação
 A API utiliza JWT (JSON Web Token) para autenticação.
 
 Endpoint público:
@@ -87,7 +90,8 @@ Endpoints privados exigem token JWT no header:
 
 
 Authorization: Bearer <token>
-📑 Endpoints Principais
+---
+##Endpoints Principais
 Tópicos
 GET /topicos → Lista todos os tópicos
 
