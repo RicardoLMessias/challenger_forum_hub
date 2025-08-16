@@ -56,15 +56,26 @@ http://localhost:8080
 📂 Estrutura do Projeto
 
 src/
+
  ├── main/
+ 
  │   ├── java/br/com/alura/Challenger/Forumhub
+ 
  │   │    ├── controller     # Endpoints REST
+ 
  │   │    ├── domain         # Entidades e regras de negócio
+ 
  │   │    ├── repository     # Interfaces JPA
+ 
  │   │    └── security       # Configuração de segurança
+ 
  │   └── resources/
+ 
  │        ├── application.properties
+ 
  │        └── db/migration   # Migrations Flyway
+
+ 
 🔒 Autenticação
 A API utiliza JWT (JSON Web Token) para autenticação.
 
