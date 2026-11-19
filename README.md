@@ -35,77 +35,85 @@ Um projeto desenvolvido como desafio da **Alura**, que implementa um sistema de 
 ### Passos
 
 1. Clone o repositório:
-   git clone https://github.com/RicardoLMessias/challenger_forum_hub
-   cd forumhub
-   ---
-   
-Configure o banco de dados no arquivo application.properties:
 
-properties
+```bash
+git clone https://github.com/RicardoLMessias/challenger_forum_hub.git
+cd challenger_forum_hub
+```
 
-spring.datasource.url=jdbc:mysql://localhost:3306/forumhub
-spring.datasource.username=seu-usuario
-spring.datasource.password=sua-senha
-Execute o projeto com Maven:
+2. Crie o banco `forumhub` no MySQL e defina as variáveis de ambiente usadas no `application.properties`:
+
+```bash
+export DB_NAMEURL=jdbc:mysql://localhost:3306/forumhub
+export DB_USER=seu-usuario
+export DB_PASSWORD=sua-senha
+export JWT_SECRET=uma-chave-secreta
+```
+
+3. Execute o projeto (as tabelas são criadas pelas migrations do Flyway):
+
+```bash
+./mvnw spring-boot:run
+```
+
+A API sobe em `http://localhost:8080`.
+
 ---
 
-mvn spring-boot:run
-Acesse a aplicação em:
+## Estrutura do Projeto
 
+```
+src/main/
+├── java/br/com/alura/Challenger/Forumhub/
+│   ├── controller/        # Endpoints REST
+│   ├── domain/
+│   │   ├── topico/        # Entidade, DTOs e repositório de tópicos
+│   │   └── usuario/       # Entidade, repositório e serviço de autenticação
+│   └── infra/
+│       ├── exception/     # Tratamento global de erros
+│       └── security/      # Spring Security e filtro JWT
+└── resources/
+    ├── application.properties
+    └── db/migration/      # Migrations Flyway (V1 a V6)
+```
 
-http://localhost:8080
 ---
-##  Estrutura do Projeto
 
-src/
+## Autenticação
 
- ├── main/
- 
- │   ├── java/br/com/alura/Challenger/Forumhub
- 
- │   │    ├── controller     # Endpoints REST
- 
- │   │    ├── domain         # Entidades e regras de negócio
- 
- │   │    ├── repository     # Interfaces JPA
- 
- │   │    └── security       # Configuração de segurança
- 
- │   └── resources/
- 
- │        ├── application.properties
- 
- │        └── db/migration   # Migrations Flyway
+A API utiliza JWT (JSON Web Token). Faça login para receber o token:
 
- 
----
-##Autenticação
-A API utiliza JWT (JSON Web Token) para autenticação.
+```
+POST /login
+```
 
-Endpoint público:
+As demais rotas exigem o token no header:
 
-POST /login → Gera token de autenticação
-
-Endpoints privados exigem token JWT no header:
-
-
+```
 Authorization: Bearer <token>
+```
+
 ---
-##Endpoints Principais
-Tópicos
-GET /topicos → Lista todos os tópicos
 
-GET /topicos/{id} → Detalha um tópico específico
+## Endpoints Principais
 
-POST /topicos → Cria um novo tópico
+| Método | Rota | Descrição |
+|---|---|---|
+| POST | `/login` | Autentica e retorna o token JWT |
+| GET | `/topicos` | Lista os tópicos |
+| GET | `/topicos/{id}` | Detalha um tópico |
+| POST | `/topicos` | Cria um tópico |
+| PUT | `/topicos` | Atualiza um tópico |
+| DELETE | `/topicos/{id}` | Exclusão lógica de um tópico |
 
-PUT /topicos/{id} → Edita um tópico existente
-
-DELETE /topicos/{id} → Exclusão lógica de um tópico
+---
 
 ## Melhorias Futuras
-Documentação da API com Swagger/OpenAPI
 
-Testes unitários e de integração
+- Documentação da API com Swagger/OpenAPI
+- Testes unitários e de integração
+- Roles e permissões avançadas
 
-Implementação de roles e permissões avançadas
+## Autor
+
+Ricardo Lima Messias — [GitHub](https://github.com/RicardoLMessias) · [LinkedIn](https://www.linkedin.com/in/ricardolimamessias-java)
